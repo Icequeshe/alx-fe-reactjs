@@ -1,0 +1,14 @@
+/* src/index.css */
+body {
+  margin: 0;
+  font-family: 'Inter', sans-serif; /* Using Inter font as per instructions */
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #f0f2f5; /* Light background for the whole page */
+}
+
+/* Basic reset for elements */
+h1, h2, h3, h4, h5, h6, p, ul {
+  margin: 0;
+  padding: 0;
+}
