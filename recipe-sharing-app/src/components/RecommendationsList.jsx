@@ -1,31 +1,26 @@
-import React from 'react';
 import { useRecipeStore } from './recipeStore';
-import { Link } from 'react-router-dom';
+import { useEffect } from 'react';
 
-const FavoritesList = () => {
-  const favorites = useRecipeStore(state => state.favorites);
-  const recipes = useRecipeStore(state => state.recipes);
-  const removeFavorite = useRecipeStore(state => state.removeFavorite);
+const RecommendationsList = () => {
+  const recommendations = useRecipeStore((state) => state.recommendations);
+  const generateRecommendations = useRecipeStore(
+    (state) => state.generateRecommendations
+  );
 
-  const favoriteRecipes = favorites
-    .map(id => recipes.find(recipe => recipe.id === id))
-    .filter(Boolean); // filter out any nulls if a recipe was deleted
+  useEffect(() => {
+    generateRecommendations();
+  }, [generateRecommendations]);
 
   return (
     <div>
-      <h2>My Favorite Recipes</h2>
-      {favoriteRecipes.length === 0 ? (
-        <p>You have no favorite recipes yet.</p>
+      <h2>Recommended Recipes</h2>
+      {recommendations.length === 0 ? (
+        <p>No recommendations yet.</p>
       ) : (
-        favoriteRecipes.map(recipe => (
-          <div key={recipe.id} style={{ border: '1px solid #ddd', padding: '10px', marginBottom: '10px' }}>
+        recommendations.map((recipe) => (
+          <div key={recipe.id}>
             <h3>{recipe.title}</h3>
             <p>{recipe.description}</p>
-            <Link to={`/recipe/${recipe.id}`}>View Details</Link>
-            <br />
-            <button onClick={() => removeFavorite(recipe.id)} style={{ marginTop: '8px' }}>
-              Remove from Favorites
-            </button>
           </div>
         ))
       )}
@@ -33,4 +28,4 @@ const FavoritesList = () => {
   );
 };
 
-export default FavoritesList;
+export default RecommendationsList;
