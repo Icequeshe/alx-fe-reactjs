@@ -17,14 +17,14 @@ function Search() {
       const data = await fetchUserData(username);
       setUserData(data);
     } catch (err) {
-      setError('Looks like we can’t find the user.');
+      setError('Looks like we cant find the user');
     } finally {
       setLoading(false);
     }
   };
 
   return (
-    <div>
+    <div style={{ textAlign: 'center', marginTop: '2rem' }}>
       <form onSubmit={handleSubmit}>
         <input
           type="text"
@@ -38,7 +38,7 @@ function Search() {
       {loading && <p>Loading...</p>}
       {error && <p>{error}</p>}
       {userData && (
-        <div>
+        <div style={{ marginTop: '1rem' }}>
           <img src={userData.avatar_url} alt={userData.login} width={100} />
           <h2>{userData.name || userData.login}</h2>
           <a href={userData.html_url} target="_blank" rel="noreferrer">
