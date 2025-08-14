@@ -3,18 +3,66 @@
     "id": 1,
     "title": "Spaghetti Carbonara",
     "summary": "A classic Italian pasta dish with eggs, cheese, bacon, and black pepper.",
-    "image": "https://via.placeholder.com/300x200"
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "200g spaghetti",
+      "100g bacon or pancetta",
+      "2 large eggs",
+      "50g Parmesan cheese, grated",
+      "Freshly ground black pepper",
+      "Salt to taste"
+    ],
+    "instructions": [
+      "Cook the spaghetti in salted boiling water until al dente.",
+      "Fry the bacon or pancetta until crispy, then set aside.",
+      "Beat the eggs in a bowl, add grated Parmesan, and mix well.",
+      "Drain the pasta and quickly mix with the bacon and egg-cheese mixture.",
+      "Serve immediately with extra black pepper and Parmesan."
+    ]
   },
   {
     "id": 2,
     "title": "Chicken Tikka Masala",
-    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato based gravy.",
-    "image": "https://via.placeholder.com/300x200"
+    "summary": "Chunks of grilled chicken (tikka) cooked in a smooth buttery & creamy tomato-based gravy.",
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "500g chicken breast, cut into cubes",
+      "1 cup plain yogurt",
+      "2 tbsp tikka masala paste",
+      "1 onion, finely chopped",
+      "400g canned tomatoes",
+      "200ml heavy cream",
+      "2 tbsp butter",
+      "Salt and pepper to taste"
+    ],
+    "instructions": [
+      "Marinate chicken in yogurt and tikka masala paste for at least 1 hour.",
+      "Grill or pan-fry the chicken until cooked through, then set aside.",
+      "In a pan, melt butter and sauté the onion until soft.",
+      "Add canned tomatoes and cook for 10 minutes, stirring occasionally.",
+      "Add cream, season, and stir in the cooked chicken.",
+      "Simmer for 5 minutes and serve with rice or naan."
+    ]
   },
   {
     "id": 3,
     "title": "Avocado Toast",
     "summary": "Toasted bread topped with ripe avocado, olive oil, and a pinch of salt & pepper.",
-    "image": "https://via.placeholder.com/300x200"
+    "image": "https://via.placeholder.com/300x200",
+    "ingredients": [
+      "2 slices of bread",
+      "1 ripe avocado",
+      "1 tbsp olive oil",
+      "Salt to taste",
+      "Black pepper to taste",
+      "Optional: cherry tomatoes, chili flakes, or feta cheese"
+    ],
+    "instructions": [
+      "Toast the bread slices to your liking.",
+      "Mash the avocado in a bowl and season with salt and pepper.",
+      "Spread the mashed avocado on the toasted bread.",
+      "Drizzle with olive oil and add optional toppings.",
+      "Serve immediately."
+    ]
   }
 ]
