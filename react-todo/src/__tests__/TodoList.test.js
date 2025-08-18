@@ -1,30 +1,35 @@
+import React from "react";
 import { render, screen, fireEvent } from "@testing-library/react";
+import "@testing-library/jest-dom";
 import TodoList from "../components/TodoList";
 
-test("renders initial todos", () => {
-  render(<TodoList />);
-  expect(screen.getByText(/Learn React/i)).toBeInTheDocument();
-  expect(screen.getByText(/Build a Todo App/i)).toBeInTheDocument();
-});
-
-test("adds a new todo", () => {
-  render(<TodoList />);
-  fireEvent.change(screen.getByPlaceholderText(/Add a new todo/i), {
-    target: { value: "Write tests" },
+describe("TodoList Component", () => {
+  test("renders initial todos", () => {
+    render(<TodoList />);
+    expect(screen.getByText("Learn React")).toBeInTheDocument();
+    expect(screen.getByText("Build a Todo App")).toBeInTheDocument();
   });
-  fireEvent.click(screen.getByText(/Add/i));
-  expect(screen.getByText(/Write tests/i)).toBeInTheDocument();
-});
 
-test("toggles a todo", () => {
-  render(<TodoList />);
-  const todoItem = screen.getByText(/Learn React/i);
-  fireEvent.click(todoItem);
-  expect(todoItem).toHaveStyle("text-decoration: line-through");
-});
+  test("adds a new todo", () => {
+    render(<TodoList />);
+    const input = screen.getByPlaceholderText("Add new todo");
+    fireEvent.change(input, { target: { value: "New Task" } });
+    fireEvent.click(screen.getByText("Add"));
+    expect(screen.getByText("New Task")).toBeInTheDocument();
+  });
 
-test("deletes a todo", () => {
-  render(<TodoList />);
-  fireEvent.click(screen.getByText(/Delete/i)); // deletes first todo
-  expect(screen.queryByText(/Learn React/i)).not.toBeInTheDocument();
+  test("toggles a todo as completed", () => {
+    render(<TodoList />);
+    const todo = screen.getByText("Learn React");
+    fireEvent.click(todo);
+    expect(todo).toHaveStyle("text-decoration: line-through");
+  });
+
+  test("deletes a todo", () => {
+    render(<TodoList />);
+    const todo = screen.getByText("Learn React");
+    const deleteBtn = todo.querySelector("button");
+    fireEvent.click(deleteBtn);
+    expect(todo).not.toBeInTheDocument();
+  });
 });
