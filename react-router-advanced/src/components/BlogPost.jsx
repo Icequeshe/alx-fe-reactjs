@@ -1,12 +1,16 @@
 import { useParams } from "react-router-dom";
 
-export default function BlogPost() {
-  const { postId } = useParams();
+function BlogPost() {
+  const { id } = useParams();
 
   return (
     <div className="p-6">
-      <h2 className="text-xl font-bold">Blog Post ID: {postId}</h2>
-      <p>This is a dynamically routed blog post page.</p>
+      <h2 className="text-2xl font-bold">Blog Post {id}</h2>
+      <p className="mt-4">
+        This is the content for blog post with ID: <strong>{id}</strong>.
+      </p>
     </div>
   );
 }
+
+export default BlogPost;
