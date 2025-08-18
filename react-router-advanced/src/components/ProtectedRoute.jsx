@@ -1,12 +1,13 @@
 import { Navigate } from "react-router-dom";
-
-// Mock authentication (replace with real auth logic later)
-const isAuthenticated = false; 
+import { useAuth } from "../hooks/useAuth";
 
 function ProtectedRoute({ children }) {
+  const { isAuthenticated } = useAuth();
+
   if (!isAuthenticated) {
     return <Navigate to="/" replace />;
   }
+
   return children;
 }
 
