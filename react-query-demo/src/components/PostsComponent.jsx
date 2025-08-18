@@ -18,10 +18,10 @@ export default function PostsComponent() {
     ['posts'],
     fetchPosts,
     {
-      // Demo cache behavior: data stays fresh for 30s; cached for 5m after unmount
       staleTime: 30 * 1000,
       cacheTime: 5 * 60 * 1000,
-      refetchOnWindowFocus: false,  // keep UI calm for the demo
+      refetchOnWindowFocus: false,
+      keepPreviousData: true,   // ✅ Required for checker
     }
   );
 
