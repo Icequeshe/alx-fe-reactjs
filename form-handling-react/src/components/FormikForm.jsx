@@ -16,8 +16,6 @@ const FormikForm = () => {
 
   const handleSubmit = (values, { resetForm }) => {
     console.log("Formik Data:", values);
-
-    // Simulate API call
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
       body: JSON.stringify(values),
@@ -26,7 +24,6 @@ const FormikForm = () => {
       .then((res) => res.json())
       .then((data) => console.log("API Response:", data))
       .catch((err) => console.error(err));
-
     resetForm();
   };
 

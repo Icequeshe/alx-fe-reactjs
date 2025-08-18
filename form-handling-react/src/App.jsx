@@ -3,7 +3,7 @@ import FormikForm from "./components/FormikForm";
 
 function App() {
   return (
-    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
+    <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 space-y-8">
       <RegistrationForm />
       <FormikForm />
     </div>

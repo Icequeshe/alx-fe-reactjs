@@ -4,16 +4,27 @@ const RegistrationForm = () => {
   const [username, setUsername] = useState("");
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [error, setError] = useState("");
+  const [errors, setErrors] = useState("");
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    if (!username || !email || !password) {
-      setError("All fields are required.");
+
+    if (!username) {
+      setErrors("Username is required.");
       return;
     }
-    setError("");
+    if (!email) {
+      setErrors("Email is required.");
+      return;
+    }
+    if (!password) {
+      setErrors("Password is required.");
+      return;
+    }
+
+    setErrors("");
     console.log("Submitted Data:", { username, email, password });
+
     fetch("https://jsonplaceholder.typicode.com/users", {
       method: "POST",
       body: JSON.stringify({ username, email, password }),
@@ -27,7 +38,7 @@ const RegistrationForm = () => {
   return (
     <div className="p-6 max-w-md mx-auto bg-white shadow rounded-lg">
       <h2 className="text-xl font-bold mb-4">User Registration (Controlled)</h2>
-      {error && <p className="text-red-500">{error}</p>}
+      {errors && <p className="text-red-500">{errors}</p>}
       <form onSubmit={handleSubmit} className="space-y-4">
         <input
           type="text"
@@ -55,3 +66,13 @@ const RegistrationForm = () => {
         />
         <button
           type="submit"
+          className="w-full bg-blue-600 text-white p-2 rounded hover:bg-blue-700"
+        >
+          Register
+        </button>
+      </form>
+    </div>
+  );
+};
+
+export default RegistrationForm;
